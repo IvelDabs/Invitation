@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+/* body {
+  font-family: 'Dancing Script', cursive;
+} */
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease-out; /* Fade out transition for envelope */
+  margin-top: 5rem;
+  border-radius: 5px;
+}
+
+.envelope {
+  width: 400px;
+  height: 320px;
+  background-color: #f4e1d2;
+  border-radius: 10px;
+  position: relative;
+  transition: transform 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.envelope-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background-color: #f4e1d2;
+}
+.envelope-front h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.envelope-front p {
+  margin-bottom: 2px;
+  font-size: 20px;
+  font-family: "Dancing Script", cursive;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.invitation {
+  width: 100%;
+}
+
+.invitation h1,
+.invitation h2,
+.invitation h3,
+.invitation h4,
+.envelope-front h2 {
+  margin: 10px 0;
+  color: #7b7b7b;
+}
+
+.invitation h1 {
+  font-size: 24px;
+}
+.invitation p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+strong {
+  font-family: "Dancing Script", cursive;
+  font-size: 24px;
+}
+
+.invitation h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.invitation h4 {
+  font-size: 18px;
+  color: #555;
+}
