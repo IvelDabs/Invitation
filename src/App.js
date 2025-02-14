@@ -90,6 +90,7 @@ function App() {
                   onChange={(e) =>
                     setInviteeName({ ...name, lastName: e.target.value })
                   }
+                  required
                 />
               </label>
               {/* Submit button with disabled logic */}
