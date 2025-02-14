@@ -19,13 +19,13 @@
   align-items: center;
   flex-direction: column;
   transition: opacity 0.5s ease-out; /* Fade out transition for envelope */
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-radius: 5px;
 }
 
 .envelope {
   width: 400px;
-  height: 320px;
+  height: 370px;
   background-color: #f4e1d2;
   border-radius: 10px;
   position: relative;
@@ -43,7 +43,7 @@
   background-color: #f4e1d2;
 }
 .envelope-front h2 {
-  margin-bottom: 10px;
+  margin-bottom: 5rem;
   font-size: 20px;
 }
 
@@ -51,20 +51,6 @@
   margin-bottom: 2px;
   font-size: 20px;
   font-family: "Dancing Script", cursive;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
 }
 
 .invitation {
@@ -101,4 +87,45 @@ strong {
 .invitation h4 {
   font-size: 18px;
   color: #555;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  grid-column: span 2; /* Makes the button span across both columns in the grid */
+  justify-self: center; /* Horizontally centers the button */
+  align-self: center; /* Vertically centers the button (if needed) */
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #4caf50;
 }

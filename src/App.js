@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  let [style, setStyle] = useState({
+  const [style, setStyle] = useState({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -12,17 +13,43 @@ function App() {
     textAlign: "center",
   });
 
+  const [name, setInviteeName] = useState({
+    firstName: "",
+    lastName: "",
+  });
+
+  const [isFormValid, setIsFormValid] = useState(false); // Track form validity
+
+  // Handle click to toggle the envelope opening
   const handleClick = () => {
     setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    // Check if both firstName and lastName have content to enable button
+    setIsFormValid(name.firstName.trim() !== "" && name.lastName.trim() !== "");
+  }, [name]);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); // Prevent page reload
+    const formData = new FormData(e.target);
+    getInviteeName(formData); // Update the state with the form data
+  };
+
+  const getInviteeName = (formData) => {
+    const inviteeName = formData.get("inviteeFirstName");
+    const inviteeLastName = formData.get("inviteeLastName");
+
+    setInviteeName({
+      firstName: inviteeName,
+      lastName: inviteeLastName,
+    });
   };
 
   return (
     <div className="App">
       <div className="envelope-container">
-        <div
-          className={`envelope ${isOpen ? "open" : ""})
-          }`}
-        >
+        <div className={`envelope ${isOpen ? "open" : ""}`}>
           <div
             className="envelope-front"
             style={
@@ -30,31 +57,71 @@ function App() {
             }
           >
             <h3>
-              {/* Traditional Wedding Invitation */}
               <p>
                 CHIDERA RUTH UKAEGBU <br />
                 &amp; <br />
                 DABERECHI LEVI NWACHUKWU
-              </p>{" "}
+              </p>
             </h3>
-            <h2>Invites You</h2>
-            <button onClick={handleClick}>Click to Open Invitation</button>
+            <h2>Invites:</h2>
+            <form onSubmit={handleFormSubmit}>
+              <label htmlFor="firstName">
+                <input
+                  type="text"
+                  name="inviteeFirstName"
+                  id="firstName"
+                  placeholder="First Name"
+                  aria-label="Invitee first name"
+                  value={name.firstName} // Controlled input
+                  onChange={(e) =>
+                    setInviteeName({ ...name, firstName: e.target.value })
+                  }
+                  required
+                />
+              </label>
+              <label htmlFor="lastName">
+                <input
+                  type="text"
+                  name="inviteeLastName"
+                  id="lastName"
+                  placeholder="Last Name"
+                  aria-label="Invitee last name"
+                  value={name.lastName} // Controlled input
+                  onChange={(e) =>
+                    setInviteeName({ ...name, lastName: e.target.value })
+                  }
+                />
+              </label>
+              {/* Submit button with disabled logic */}
+              <button
+                type="submit"
+                onClick={handleClick}
+                disabled={!isFormValid}
+              >
+                Click to Open Invitation
+              </button>
+            </form>
           </div>
           <div className="envelope-back">
             {isOpen && (
               <div className="invitation">
                 <h1>Traditional Marriage Invitation</h1>
                 <div className="address">
-                  <p>Together with the families of</p>
+                  <p>Together with the families</p>
                   <p>
                     <strong>Chidera Ruth Ukaegbu</strong>
                   </p>
                   <p> &amp;</p>
-
                   <p>
                     <strong>Daberechi Levi Nwachukwu</strong>
                   </p>
-                  <h2>Cordially invites you to their Traditional Marriage</h2>
+                  <h2>Cordially Invites:</h2>
+                  <p>
+                    <strong>
+                      {name.firstName} {name.lastName}
+                    </strong>
+                  </p>
+                  <br /> To their Traditional Marriage
                   <h4>Save the Date!</h4>
                   <p>
                     <strong>Saturday, March 15, 2025</strong>
