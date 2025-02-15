@@ -115,11 +115,11 @@ function App() {
                 {/* <h1>Traditional Marriage Invitation</h1> */}
                 <div className="address">
                   <p>
-                    The families of Eric Onwuzuruike Ukaegbu of Umuoma Umuorie
-                    Naze Owerri North L.G.A, Imo State.
+                    The families of Mrs & Mrs Eric Onwuzuruike Ukaegbu of Umuoma
+                    Umuorie Naze Owerri North L.G.A, Imo State.
                     <br />
-                    <p> &amp;</p> <br /> Enyioma Nwachukwu Esiaga of Ehume
-                    Umuokpara, Umuahia South L.G.A, Abia State.
+                    <p> &amp;</p> <br /> Mrs & Mrs Enyioma Nwachukwu Esiaga of
+                    Ehume Umuokpara, Umuahia South L.G.A, Abia State.
                   </p>
                   <h2>Cordially Invites:</h2>
                   <p>
