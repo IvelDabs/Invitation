@@ -31,9 +31,9 @@ function App() {
   }, [name]);
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
     const formData = new FormData(e.target);
-    getInviteeName(formData); // Update the state with the form data
+    getInviteeName(formData);
   };
 
   const getInviteeName = (formData) => {
@@ -72,7 +72,7 @@ function App() {
                   id="firstName"
                   placeholder="First Name"
                   aria-label="Invitee first name"
-                  value={name.firstName} // Controlled input
+                  // value={name.firstName}
                   onChange={(e) =>
                     setInviteeName({ ...name, firstName: e.target.value })
                   }
@@ -86,29 +86,48 @@ function App() {
                   id="lastName"
                   placeholder="Last Name"
                   aria-label="Invitee last name"
-                  value={name.lastName} // Controlled input
+                  value={name.lastName}
                   onChange={(e) =>
                     setInviteeName({ ...name, lastName: e.target.value })
                   }
                   required
                 />
               </label>
-              {/* Submit button with disabled logic */}
               <button
                 type="submit"
                 onClick={handleClick}
+                aria-label={
+                  !isFormValid
+                    ? "Fill in your name to open invite"
+                    : "Click to open invite"
+                }
                 disabled={!isFormValid}
               >
-                Click to Open Invitation
+                {!isFormValid
+                  ? "Fill in your name to open invite"
+                  : "Click to open invite"}
               </button>
             </form>
           </div>
           <div className="envelope-back">
             {isOpen && (
               <div className="invitation">
-                <h1>Traditional Marriage Invitation</h1>
+                {/* <h1>Traditional Marriage Invitation</h1> */}
                 <div className="address">
-                  <p>Together with the families</p>
+                  <p>
+                    The families of Eric Onwuzuruike Ukaegbu of Umuoma Umuorie
+                    Naze Owerri North L.G.A, Imo State.
+                    <br />
+                    <p> &amp;</p> <br /> Enyioma Nwachukwu Esiaga of Ehume
+                    Umuokpara, Umuahia South L.G.A, Abia State.
+                  </p>
+                  <h2>Cordially Invites:</h2>
+                  <p>
+                    <strong>
+                      {name.firstName} {name.lastName}
+                    </strong>
+                  </p>{" "}
+                  <br /> To the Traditional Marriage of their children
                   <p>
                     <strong>Chidera Ruth Ukaegbu</strong>
                   </p>
@@ -116,16 +135,16 @@ function App() {
                   <p>
                     <strong>Daberechi Levi Nwachukwu</strong>
                   </p>
-                  <h2>Cordially Invites:</h2>
+                  {/* <h2>Cordially Invites:</h2>
                   <p>
                     <strong>
                       {name.firstName} {name.lastName}
                     </strong>
-                  </p>
-                  <br /> To their Traditional Marriage
+                  </p> */}
+                  {/* <br /> To their Traditional Marriage */}
                   <h4>Save the Date!</h4>
                   <p>
-                    <strong>Saturday, March 15, 2025</strong>
+                    <strong>Saturday March 15, 2025</strong>
                   </p>
                   <p>
                     <h3>@</h3>
