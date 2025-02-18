@@ -148,8 +148,8 @@ function App() {
                   </p>
                   <p>
                     <h3>@</h3>
-                    Eric Onwuzuruike Ukaegbu (Bishop) compound, Umuoma Umuorie
-                    Naze Owerri North LGA, Imo State
+                    Eric Onwuzuruike Ukaegbu (a.k.a Bishop)'s compound in Umuoma
+                    Umuorie Naze, Owerri North LGA, Imo State.
                   </p>
                   <p>
                     <strong>RSVP:</strong>
